@@ -28,20 +28,20 @@ steps:
     key: $(Build.SourcesDirectory)/pom.xml
     path: $(MAVEN_CACHE_FOLDER)
   displayName: Cache Maven local repo
-- task: Maven@3
-  inputs:
-    mavenPomFile: 'pom.xml'
-    publishJUnitResults: true
-    testResultsFiles: '**/surefire-reports/TEST-*.xml'
-    mavenOptions: '-Xmx3072m'
-    javaHomeOption: 'JDKVersion'
-    jdkVersionOption: '1.8'
-    jdkArchitectureOption: 'x64'
-    goals: 'package $(MAVEN_OPTS) $(MAVEN_OPTS_BUILD)'
-    sonarQubeRunAnalysis: true
-    isJacocoCoverageReportXML: true
-    sqMavenPluginVersionChoice: 'pom'
-  displayName: Maven Build
+# - task: Maven@3
+#   inputs:
+#     mavenPomFile: 'pom.xml'
+#     publishJUnitResults: true
+#     testResultsFiles: '**/surefire-reports/TEST-*.xml'
+#     mavenOptions: '-Xmx3072m'
+#     javaHomeOption: 'JDKVersion'
+#     jdkVersionOption: '1.8'
+#     jdkArchitectureOption: 'x64'
+#     goals: 'package $(MAVEN_OPTS) $(MAVEN_OPTS_BUILD)'
+#     sonarQubeRunAnalysis: true
+#     isJacocoCoverageReportXML: true
+#     sqMavenPluginVersionChoice: 'pom'
+#   displayName: Maven Build
 - task: CopyFiles@2
   inputs:
     Contents: '**/target/*.jar'
